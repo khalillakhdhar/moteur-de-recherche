@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inscription</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+
+</head>
+<body class="hold-transition register-page">
+<div class="register-box">
+  <div class="register-logo">
+    <a href="#"><b>Moteur d'intranet</b> Protech-it</a>
+  </div>
+
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg">S'inscrire</p>
+
+      <form  method="post">
+        <div class="input-group mb-3">
+          <input type="text" name="nom" [(ngModel)]="user.nom" required class="form-control" placeholder="Nom complet">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="number" [(ngModel)]="user.age" min="18" name="age" required class="form-control" placeholder="Age">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="email" [(ngModel)]="user.email" name="email" required class="form-control" placeholder="Email">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" [(ngModel)]="user.mdp" class="form-control" placeholder="mot de passe" name="mdp">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+            <input type="text" name="telephone" [(ngModel)]="user.telephone" required class="form-control" placeholder="telephone">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-phone"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <textarea name="adresse" [(ngModel)]="user.adresse" required class="form-control" placeholder="adresse"></textarea>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-globe"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" name="equipe" [(ngModel)]="user.equipe" required class="form-control" placeholder="Equipe ">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-users"></span>
+              </div>
+            </div>
+          </div>
+        <div class="row">
+         
+          <!-- /.col -->
+          <div class="col-4">
+            <button (click)="save()" type="submit" class="btn btn-primary btn-block">s'inscrire</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+     
+
+      <a href="" class="text-center">Déjà membre?</a>
+    </div>
+    <!-- /.form-box -->
+  </div><!-- /.card -->
+</div>
+<!-- /.register-box -->
+
+<!-- jQuery -->
+
+</body>
+</html>

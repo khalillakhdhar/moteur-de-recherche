@@ -1,0 +1,76 @@
+<div class="row">
+    <div class="col">
+ 
+    </div>
+    <div class="col-8">
+
+        <form  method="post">
+            <div class="input-group mb-3">
+              <input type="text" name="nom" [(ngModel)]="user.nom" required class="form-control" placeholder="Nom complet">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-user"></span>
+                </div>
+              </div>
+            </div>
+            <div class="input-group mb-3">
+              <input type="number" [(ngModel)]="user.age" min="18" name="age" required class="form-control" placeholder="Age">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-user"></span>
+                </div>
+              </div>
+            </div>
+            <div class="input-group mb-3">
+              <input type="email" [(ngModel)]="user.email" name="email" required class="form-control" placeholder="Email">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-envelope"></span>
+                </div>
+              </div>
+            </div>
+            <div class="input-group mb-3">
+              <input type="password" [(ngModel)]="user.mdp" class="form-control" placeholder="mot de passe" name="mdp">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-lock"></span>
+                </div>
+              </div>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" name="telephone" [(ngModel)]="user.telephone" required class="form-control" placeholder="telephone">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-phone"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <textarea name="adresse" [(ngModel)]="user.adresse" required class="form-control" placeholder="adresse"></textarea>
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-globe"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <input type="text" name="equipe" [(ngModel)]="user.equipe" required class="form-control" placeholder="Equipe ">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-users"></span>
+                  </div>
+                </div>
+              </div>
+            <div class="row">
+             
+              <!-- /.col -->
+              <div class="col-4">
+                <div  align="center"><button (click)="update()" type="submit" class="btn btn-primary btn-block">Mettre à jour</button></div>
+              </div>
+              <!-- /.col -->
+            </div>
+          </form>    </div>
+    <div class="col">
+   
+    </div>
+  </div>

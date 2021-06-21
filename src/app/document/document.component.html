@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+      </div>
+      <div class="col-sm">
+<h1>Gestion des documents</h1>
+        <form  method="post">
+            <div class="input-group mb-3">
+              <input type="text" name="nom" [(ngModel)]="document.titre" required class="form-control" placeholder="titre">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-user"></span>
+                </div>
+              </div>
+            </div>
+         
+          
+            
+            <div class="input-group mb-3">
+                <input type="text" name="telephone" [(ngModel)]="document.url" required class="form-control" placeholder="domaine">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-globe"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <textarea name="adresse" [(ngModel)]="document.description" required class="form-control" placeholder="description"></textarea>
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-lock"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4"  >
+                    <div  align="center"><button (click)="save()" type="submit" class="btn btn-primary btn-block">Ajouter</button></div>
+                  </div>
+
+
+
+
+              </div>
+             
+        
+          </form>
+    </div>
+      <div class="col-sm">
+      </div>
+    </div>
+  </div>
+  <input type="text" class="form-control" placeholder="Search" [(ngModel)]="query" id="listSearch">
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>  <th>Titre</th>
+        <th>date</th>
+        <th>Description</th>
+        <th>url</th>
+        
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let eq of documents |   LockFilter: query |   paginate: { itemsPerPage: 2, currentPage: p } "><td>{{eq.titre}}</td>
+        <td>{{eq.date |date: "short"}}</td>
+        <td>{{eq.description}}</td>
+        <td><a href="{{eq.url}}" target="_blank">lien</a></td>
+  
+        <td><button (click)="delete(eq.id)" class="btn btn-danger">Supprimer</button> &nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    </tbody>
+    <tfoot>
+         <tr>  <th>Titre</th>
+            <th>date</th>
+            <th>Description</th>
+            <th>url</th>
+            
+            <th>Action</th>
+        </tr>
+    </tfoot>
+    
+      </table><br>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>

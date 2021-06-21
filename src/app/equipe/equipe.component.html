@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+      </div>
+      <div class="col-sm">
+<h1>Gestion des équipes</h1>
+        <form  method="post">
+            <div class="input-group mb-3">
+              <input type="text" name="nom" [(ngModel)]="equipe.titre" required class="form-control" placeholder="titre">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-user"></span>
+                </div>
+              </div>
+            </div>
+         
+          
+            
+            <div class="input-group mb-3">
+                <input type="text" name="telephone" [(ngModel)]="equipe.domaine" required class="form-control" placeholder="domaine">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-globe"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <textarea name="adresse" [(ngModel)]="equipe.descirption" required class="form-control" placeholder="description"></textarea>
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-lock"></span>
+                  </div>
+                </div>
+              </div>
+             
+            <div class="row">
+             
+              <!-- /.col -->
+              <div class="col-4" *ngIf="!selected" >
+                <div  align="center"><button (click)="save()" type="submit" class="btn btn-primary btn-block">Ajouter</button></div>
+              </div>
+              <div class="col-8" *ngIf="selected" >
+                <div  align="center"><button (click)="update()" type="submit" class="btn btn-primary ">Mettre à jours</button>&nbsp;&nbsp;<button (click)="annuler()" type="submit" class="btn btn-warning">Annuler</button></div>
+              </div>
+              <br><br>
+              <!-- /.col -->
+            </div>
+          </form>
+    </div>
+      <div class="col-sm">
+      </div>
+    </div>
+  </div>
+  <input type="text" class="form-control" placeholder="Search" [(ngModel)]="query" id="listSearch">
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>  <th>Titre</th>
+        <th>Description</th>
+        <th>Domaine</th>
+        
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let eq of equipes |   LockFilter: query |   paginate: { itemsPerPage: 2, currentPage: p } "><td>{{eq.titre}}</td>
+        <td>{{eq.descirption}}</td>
+        <td>{{eq.domaine}}</td>
+  
+        <td><button (click)="delete(eq.id)" class="btn btn-danger">Supprimer</button> &nbsp;&nbsp;&nbsp;<button (click)="select(eq)" class="btn btn-info">Séléctionner</button></td>
+    </tr>
+    </tbody>
+    <tfoot>
+        <tr>  <th>Titre</th>
+            <th>Description</th>
+            <th>Domaine</th>
+            
+            <th>Action</th>
+        </tr>
+    </tfoot>
+    
+      </table><br>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
